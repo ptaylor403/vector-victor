@@ -26,5 +26,11 @@ def dot(vector1, vector2):
 def vector_multiply(vector1, number):
     return [x * number for x in vector1[:]]
 
+def vector_mean(*args):
+    return [float(sum(vector))/len(vector) for vector in zip(*args)]
+
+def magnitude(vector):
+    return sum(a**2 for a in vector)**0.5
+
 class ShapeError(Exception):
     pass
