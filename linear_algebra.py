@@ -13,15 +13,18 @@ def vector_sub(vector1, vector2):
     return [x - y for x, y in zip(vector1, vector2)]
 
 def vector_sum(*args):
-    if len(a) != len(a):
+    length = [len(i) for i in args]
+    if max(length) != min(length):
         raise ShapeError
     return [sum(a) for a in zip(*args)]
 
-def vector_multiply(vector1, vector2):
+def dot(vector1, vector2):
     if len(vector1) != len(vector2):
         raise ShapeError
-    return [x * y for x, y in zip(vector1, vector2)]
+    return sum(x * y for x, y in zip(vector1, vector2))
 
+def vector_multiply(vector1, number):
+    return [x * number for x in vector1[:]]
 
 class ShapeError(Exception):
     pass
